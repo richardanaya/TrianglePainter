@@ -265,7 +265,9 @@ draw = function () {
                 ctx.fill();
 
             }
-            if (s.type == 4) {
+
+            //boots
+            else if (s.type == 4) {
                 ctx.fillStyle = s.color_a;
                 ctx.beginPath();
                 ctx.moveTo(x * slotSizeW, y * slotSizeH);
@@ -403,145 +405,146 @@ draw = function () {
                 ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
             }
 
-            if (s.type == 12) {
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
+            //reverse boots
+            else if (s.type == 12) {
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
 
-                ctx.fillStyle = s.color_a;
-                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH);
-            }
-            else if (s.type == 13) {
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_a;
-                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
-
-
-            }
-            if (s.type == 14) {
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_a;
-                ctx.fillRect(x * slotSizeW + slotSizeW / 2, y * slotSizeH, slotSizeW / 2, slotSizeH)
+                            ctx.fillStyle = s.color_b;
+                            ctx.fillRect(x * slotSizeW + slotSizeW/2, y * slotSizeH, slotSizeW / 2, slotSizeH);
+                        }
+                        else if (s.type == 13) {
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_b;
+                            ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
 
 
-            }
-            else if (s.type == 15) {
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_a;
-                ctx.fillRect(x * slotSizeW, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
+                        }
+                        if (s.type == 14) {
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_b;
+                            ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH)
 
 
-            }
-            if (s.type == 16) {
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.fillRect(x * slotSizeW + slotSizeW / 2, y * slotSizeH, slotSizeW / 2, slotSizeH)
-
-            }
-            else if (s.type == 17) {
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.fillRect(x * slotSizeW, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
-
-            }
-            if (s.type == 18) {
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH);
-            }
-            else if (s.type == 19) {
-                ctx.fillStyle = s.color_b;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_a;
-                ctx.beginPath();
-                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
-                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
-                ctx.fill();
-                ctx.fillStyle = s.color_b;
-                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
-            }
+                        }
+                        else if (s.type == 15) {
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_b;
+                            ctx.fillRect(x * slotSizeW, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
 
 
+                        }
+                        if (s.type == 16) {
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH)
+
+                        }
+                        else if (s.type == 17) {
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.fillRect(x * slotSizeW + slotSizeW/2, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
+
+                        }
+                        if (s.type == 18) {
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.fillRect(x * slotSizeW + slotSizeW/2, y * slotSizeH, slotSizeW / 2, slotSizeH);
+                        }
+                        else if (s.type == 19) {
+                            ctx.fillStyle = s.color_a;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_b;
+                            ctx.beginPath();
+                            ctx.moveTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.lineTo(x * slotSizeW, y * slotSizeH);
+                            ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                            ctx.fill();
+                            ctx.fillStyle = s.color_a;
+                            ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
+                        }
+
+            //solids
             else if (s.type == 20) {
                 ctx.fillStyle = s.color_a;
                 ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH);
