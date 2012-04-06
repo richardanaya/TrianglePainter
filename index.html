@@ -126,6 +126,36 @@
 <canvas class="screen" width="500px" height="500px"></canvas>
 </body>
 <script>
+
+var colors = [
+" #fce94f",
+   " #edd400",
+   " #c4a000",
+   " #fcaf3e",
+   " #f57900",
+   " #ce5c00",
+   " #e9b96e",
+   " #c17d11",
+   " #8f5902",
+   " #8ae234",
+   " #73d216",
+   " #4e9a06",
+   " #729fcf",
+   " #3465a4",
+   " #204a87",
+   " #ad7fa8",
+   " #75507b",
+   " #5c3566",
+   " #ef2929",
+   " #cc0000",
+   " #a40000",
+   " #eeeeec",
+   " #d3d7cf",
+   " #babdb6",
+   " #888a85",
+   " #555753",
+   " #2e3436"];
+
 $('.leftColors').fadeTo( 0, .2 );
 $('.rightColors').fadeTo( 0, .2 );
 $('.leftColors').mouseenter(function(){
@@ -162,12 +192,14 @@ var numTypes = 22;
 for (var y = 0; y < slotHeight; y++) {
     for (var x = 0; x < slotWidth; x++) {
         slots[y * slotWidth + x] = {
-            type:numTypes-1,
-            color_a:'white',
-            color_b:'white'
+            type:Math.floor(Math.random()*numTypes),
+            color_a:colors[Math.floor(Math.random()*colors.length)],
+            color_b:colors[Math.floor(Math.random()*colors.length)],
         };
     }
 }
+
+var firstClick = true;
 
 var ctx = $('canvas').get(0).getContext('2d');
 draw = function () {
@@ -524,9 +556,23 @@ draw = function () {
 
 draw();
 
-$('canvas').click(function (e) {
-    var x = Math.floor(e.offsetX / slotSize);
-    var y = Math.floor(e.offsetY / slotSize);
+$('canvas').mousedown(function (e) {
+    if(firstClick){
+        for (var y = 0; y < slotHeight; y++) {
+            for (var x = 0; x < slotWidth; x++) {
+                slots[y * slotWidth + x] = {
+                    type:numTypes-1,
+                    color_a:'white',
+                    color_b:'white'
+                };
+            }
+        }
+        firstClick = false;
+    }
+    var t = e.target;
+    var o = $(t).offset();
+    x = Math.floor((e.pageX-o.left) / slotSize);
+    y = Math.floor((e.pageY-o.top) / slotSize);
     var s = slots[y * slotWidth + x];
     s.color_a = selectedColorA;
     s.color_b = selectedColorB;
@@ -538,6 +584,11 @@ $('canvas').click(function (e) {
     }
     else {
         s.type = (s.type + 1) % numTypes;
+    }
+    if (e.which === 3) {
+        s.type = numTypes-1;
+        s.color_a = 'white';
+        s.color_b = 'white';
     }
     draw();
 });
