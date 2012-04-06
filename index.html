@@ -1,6 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href='http://fonts.googleapis.com/css?family=Orbitron:400,900' rel='stylesheet' type='text/css'>
     <link href='apprise.min.css' rel='stylesheet' type='text/css'>
     <title>Triangle Painter</title>
@@ -9,13 +13,13 @@
     <style>
         .header {
             background: #000000; /* Old browsers */
-            background: -moz-linear-gradient(top,  #000000 0%, #606060 3%, #424242 6%, #434343 9%, #3d3d3d 17%, #3d3d3d 23%, #393939 31%, #303030 43%, #323232 46%, #2a2a2a 49%, #1e1e1e 66%, #151515 86%, #0d0d0d 91%, #000000 94%, #2a2f3b 97%, #41485c 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(3%,#606060), color-stop(6%,#424242), color-stop(9%,#434343), color-stop(17%,#3d3d3d), color-stop(23%,#3d3d3d), color-stop(31%,#393939), color-stop(43%,#303030), color-stop(46%,#323232), color-stop(49%,#2a2a2a), color-stop(66%,#1e1e1e), color-stop(86%,#151515), color-stop(91%,#0d0d0d), color-stop(94%,#000000), color-stop(97%,#2a2f3b), color-stop(100%,#41485c)); /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(top,  #000000 0%,#606060 3%,#424242 6%,#434343 9%,#3d3d3d 17%,#3d3d3d 23%,#393939 31%,#303030 43%,#323232 46%,#2a2a2a 49%,#1e1e1e 66%,#151515 86%,#0d0d0d 91%,#000000 94%,#2a2f3b 97%,#41485c 100%); /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(top,  #000000 0%,#606060 3%,#424242 6%,#434343 9%,#3d3d3d 17%,#3d3d3d 23%,#393939 31%,#303030 43%,#323232 46%,#2a2a2a 49%,#1e1e1e 66%,#151515 86%,#0d0d0d 91%,#000000 94%,#2a2f3b 97%,#41485c 100%); /* Opera 11.10+ */
-            background: -ms-linear-gradient(top,  #000000 0%,#606060 3%,#424242 6%,#434343 9%,#3d3d3d 17%,#3d3d3d 23%,#393939 31%,#303030 43%,#323232 46%,#2a2a2a 49%,#1e1e1e 66%,#151515 86%,#0d0d0d 91%,#000000 94%,#2a2f3b 97%,#41485c 100%); /* IE10+ */
-            background: linear-gradient(top,  #000000 0%,#606060 3%,#424242 6%,#434343 9%,#3d3d3d 17%,#3d3d3d 23%,#393939 31%,#303030 43%,#323232 46%,#2a2a2a 49%,#1e1e1e 66%,#151515 86%,#0d0d0d 91%,#000000 94%,#2a2f3b 97%,#41485c 100%); /* W3C */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#41485c',GradientType=0 ); /* IE6-9 */
+            background: -moz-linear-gradient(top, #000000 0%, #606060 3%, #424242 6%, #434343 9%, #3d3d3d 17%, #3d3d3d 23%, #393939 31%, #303030 43%, #323232 46%, #2a2a2a 49%, #1e1e1e 66%, #151515 86%, #0d0d0d 91%, #000000 94%, #2a2f3b 97%, #41485c 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000000), color-stop(3%, #606060), color-stop(6%, #424242), color-stop(9%, #434343), color-stop(17%, #3d3d3d), color-stop(23%, #3d3d3d), color-stop(31%, #393939), color-stop(43%, #303030), color-stop(46%, #323232), color-stop(49%, #2a2a2a), color-stop(66%, #1e1e1e), color-stop(86%, #151515), color-stop(91%, #0d0d0d), color-stop(94%, #000000), color-stop(97%, #2a2f3b), color-stop(100%, #41485c)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, #000000 0%, #606060 3%, #424242 6%, #434343 9%, #3d3d3d 17%, #3d3d3d 23%, #393939 31%, #303030 43%, #323232 46%, #2a2a2a 49%, #1e1e1e 66%, #151515 86%, #0d0d0d 91%, #000000 94%, #2a2f3b 97%, #41485c 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #000000 0%, #606060 3%, #424242 6%, #434343 9%, #3d3d3d 17%, #3d3d3d 23%, #393939 31%, #303030 43%, #323232 46%, #2a2a2a 49%, #1e1e1e 66%, #151515 86%, #0d0d0d 91%, #000000 94%, #2a2f3b 97%, #41485c 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #000000 0%, #606060 3%, #424242 6%, #434343 9%, #3d3d3d 17%, #3d3d3d 23%, #393939 31%, #303030 43%, #323232 46%, #2a2a2a 49%, #1e1e1e 66%, #151515 86%, #0d0d0d 91%, #000000 94%, #2a2f3b 97%, #41485c 100%); /* IE10+ */
+            background: linear-gradient(top, #000000 0%, #606060 3%, #424242 6%, #434343 9%, #3d3d3d 17%, #3d3d3d 23%, #393939 31%, #303030 43%, #323232 46%, #2a2a2a 49%, #1e1e1e 66%, #151515 86%, #0d0d0d 91%, #000000 94%, #2a2f3b 97%, #41485c 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#000000', endColorstr = '#41485c', GradientType = 0); /* IE6-9 */
             position: absolute;
             top: 0px;
             left: 0px;
@@ -35,7 +39,7 @@
         .header .help {
             color: white;
             float: right;
-            margin-right:5px;
+            margin-right: 5px;
         }
 
         .screen {
@@ -163,7 +167,7 @@
 <canvas class="screen" width="500px" height="500px"></canvas>
 </body>
 <script>
-$('.help').click(function(){
+$('.help').click(function () {
     apprise("INSTRUCTION<br>- Left click will place a triangle down or change the triangle shape<br>- Right click will delete a triangle<br>- Shift+Left click will change the triangle to the previous shape")
 })
 
