@@ -1,0 +1,546 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <style>
+        .screen {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            margin-left: -250px;
+            border: solid 1px white;
+            overflow: hidden;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .leftColors {
+            position: absolute;
+            top: 15px;
+            left:15px;
+            width: 100px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .rightColors {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    width: 100px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+                }
+
+        .screen:hover {
+            border: solid 1px #ccc;
+        }
+
+        .colorLeft, .colorRight {
+            width:20px;
+            height: 20px;
+            margin-top: 4px;
+            margin-left: 2px;
+            border-radius: 5px;
+            border: solid 1px #ccc;
+            display: inline-block;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div class="leftColors">
+    <div class="colorLeft" style="background-color: #fce94f"></div>
+    <div class="colorLeft" style="background-color: #edd400"></div>
+    <div class="colorLeft" style="background-color: #c4a000"></div>
+    <div class="colorLeft" style="background-color: #fcaf3e"></div>
+    <div class="colorLeft" style="background-color: #f57900"></div>
+    <div class="colorLeft" style="background-color: #ce5c00"></div>
+    <div class="colorLeft" style="background-color: #e9b96e"></div>
+    <div class="colorLeft" style="background-color: #c17d11"></div>
+    <div class="colorLeft" style="background-color: #8f5902"></div>
+    <div class="colorLeft" style="background-color: #8ae234"></div>
+    <div class="colorLeft" style="background-color: #73d216"></div>
+    <div class="colorLeft" style="background-color: #4e9a06"></div>
+    <div class="colorLeft" style="background-color: #729fcf"></div>
+    <div class="colorLeft" style="background-color: #3465a4"></div>
+    <div class="colorLeft" style="background-color: #204a87"></div>
+    <div class="colorLeft" style="background-color: #ad7fa8"></div>
+    <div class="colorLeft" style="background-color: #75507b"></div>
+    <div class="colorLeft" style="background-color: #5c3566"></div>
+    <div class="colorLeft" style="background-color: #ef2929"></div>
+    <div class="colorLeft" style="background-color: #cc0000"></div>
+    <div class="colorLeft" style="background-color: #a40000"></div>
+    <div class="colorLeft" style="background-color: #eeeeec"></div>
+    <div class="colorLeft" style="background-color: #d3d7cf"></div>
+    <div class="colorLeft" style="background-color: #babdb6"></div>
+    <div class="colorLeft" style="background-color: #888a85"></div>
+    <div class="colorLeft" style="background-color: #555753"></div>
+    <div class="colorLeft" style="background-color: #2e3436"></div>
+</div>
+<div class="rightColors">
+    <div class="colorRight" style="background-color: #fce94f"></div>
+    <div class="colorRight" style="background-color: #edd400"></div>
+    <div class="colorRight" style="background-color: #c4a000"></div>
+    <div class="colorRight" style="background-color: #fcaf3e"></div>
+    <div class="colorRight" style="background-color: #f57900"></div>
+    <div class="colorRight" style="background-color: #ce5c00"></div>
+    <div class="colorRight" style="background-color: #e9b96e"></div>
+    <div class="colorRight" style="background-color: #c17d11"></div>
+    <div class="colorRight" style="background-color: #8f5902"></div>
+    <div class="colorRight" style="background-color: #8ae234"></div>
+    <div class="colorRight" style="background-color: #73d216"></div>
+    <div class="colorRight" style="background-color: #4e9a06"></div>
+    <div class="colorRight" style="background-color: #729fcf"></div>
+    <div class="colorRight" style="background-color: #3465a4"></div>
+    <div class="colorRight" style="background-color: #204a87"></div>
+    <div class="colorRight" style="background-color: #ad7fa8"></div>
+    <div class="colorRight" style="background-color: #75507b"></div>
+    <div class="colorRight" style="background-color: #5c3566"></div>
+    <div class="colorRight" style="background-color: #ef2929"></div>
+    <div class="colorRight" style="background-color: #cc0000"></div>
+    <div class="colorRight" style="background-color: #a40000"></div>
+    <div class="colorRight" style="background-color: #eeeeec"></div>
+    <div class="colorRight" style="background-color: #d3d7cf"></div>
+    <div class="colorRight" style="background-color: #babdb6"></div>
+    <div class="colorRight" style="background-color: #888a85"></div>
+    <div class="colorRight" style="background-color: #555753"></div>
+    <div class="colorRight" style="background-color: #2e3436"></div>
+</div>
+<canvas class="screen" width="500px" height="500px"></canvas>
+</body>
+<script>
+$('.leftColors').fadeTo( 0, .2 );
+$('.rightColors').fadeTo( 0, .2 );
+$('.leftColors').mouseenter(function(){
+    $('.leftColors').fadeTo( 'fast', .9 );
+});
+$('.rightColors').mouseenter(function(){
+    $('.rightColors').fadeTo( 'fast', .9 );
+});
+$('.leftColors').mouseleave(function(){
+    $('.leftColors').fadeTo( 'fast', .2 );
+});
+$('.rightColors').mouseleave(function(){
+    $('.rightColors').fadeTo( 'fast', .2 );
+});
+var slots = [];
+var slotSize = 25;
+var slotSizeW = slotSize;
+var slotSizeH = slotSize;
+var size = 500;
+var slotWidth = Math.floor(size / slotSize);
+var slotHeight = Math.floor(size / slotSize);
+var selectedColorA = 'white';
+var selectedColorB = 'black';
+$('.colorLeft').click(function(e){
+    var t = e.target;
+    selectedColorA = $(t).css('background-color');
+});
+$('.colorRight').click(function(e){
+    var t = e.target;
+    selectedColorB = $(t).css('background-color');
+});
+var numTypes = 22;
+
+for (var y = 0; y < slotHeight; y++) {
+    for (var x = 0; x < slotWidth; x++) {
+        slots[y * slotWidth + x] = {
+            type:numTypes-1,
+            color_a:'white',
+            color_b:'white'
+        };
+    }
+}
+
+var ctx = $('canvas').get(0).getContext('2d');
+draw = function () {
+    for (var x = 0; x < slotWidth; x++) {
+        for (var y = 0; y < slotHeight; y++) {
+            var s = slots[y * slotWidth + x];
+            if (s.type == 0) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+            }
+            else if (s.type == 1) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+
+            }
+            if (s.type == 2) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+
+            }
+            else if (s.type == 3) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+
+            }
+            if (s.type == 4) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH);
+            }
+            else if (s.type == 5) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
+
+
+            }
+            if (s.type == 6) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW + slotSizeW / 2, y * slotSizeH, slotSizeW / 2, slotSizeH)
+
+
+            }
+            else if (s.type == 7) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
+
+
+            }
+            if (s.type == 8) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW + slotSizeW / 2, y * slotSizeH, slotSizeW / 2, slotSizeH)
+
+            }
+            else if (s.type == 9) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
+
+            }
+            if (s.type == 10) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH);
+            }
+            else if (s.type == 11) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
+            }
+
+            if (s.type == 12) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH);
+            }
+            else if (s.type == 13) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
+
+
+            }
+            if (s.type == 14) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW + slotSizeW / 2, y * slotSizeH, slotSizeW / 2, slotSizeH)
+
+
+            }
+            else if (s.type == 15) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
+
+
+            }
+            if (s.type == 16) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW + slotSizeW / 2, y * slotSizeH, slotSizeW / 2, slotSizeH)
+
+            }
+            else if (s.type == 17) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH + slotSizeH / 2, slotSizeW, slotSizeH / 2)
+
+            }
+            if (s.type == 18) {
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW / 2, slotSizeH);
+            }
+            else if (s.type == 19) {
+                ctx.fillStyle = s.color_b;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_a;
+                ctx.beginPath();
+                ctx.moveTo(x * slotSizeW + slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.lineTo(x * slotSizeW + slotSizeW, y * slotSizeH);
+                ctx.lineTo(x * slotSizeW, y * slotSizeH + slotSizeH);
+                ctx.fill();
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH / 2);
+            }
+
+
+            else if (s.type == 20) {
+                ctx.fillStyle = s.color_a;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH);
+            }
+            else if (s.type == 21) {
+                ctx.fillStyle = s.color_b;
+                ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH);
+            }
+        }
+    }
+};
+
+draw();
+
+$('canvas').click(function (e) {
+    var x = Math.floor(e.offsetX / slotSize);
+    var y = Math.floor(e.offsetY / slotSize);
+    var s = slots[y * slotWidth + x];
+    s.color_a = selectedColorA;
+    s.color_b = selectedColorB;
+    if (e.shiftKey) {
+        s.type = (s.type - 1) % numTypes;
+        if (s.type < 0) {
+            s.type = numTypes - 1;
+        }
+    }
+    else {
+        s.type = (s.type + 1) % numTypes;
+    }
+    draw();
+});
+</script>
+</html>
+
