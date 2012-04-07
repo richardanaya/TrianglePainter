@@ -46,6 +46,7 @@
             float: right;
             margin-right: 5px;
             font-family: 'Orbitron', sans-serif;
+            margin-top: 0px;
         }
 
         .screen {
@@ -160,6 +161,9 @@ $('.headerDropdown').change(function(){
     clear();
 });
 
+var selectedColorA = 'black';
+var selectedColorB = 'white';
+
 var setColors = function() {
     $('.leftColors').html('');
     $('.rightColors').html('');
@@ -167,6 +171,16 @@ var setColors = function() {
         $('.leftColors').append('<div class="colorLeft" style="background-color: '+currentColors[c]+'"></div>');
         $('.rightColors').append('<div class="colorRight" style="background-color: ' + currentColors[c] + '"></div>');
     }
+    $('.colorLeft').click(function (e) {
+        var t = e.target;
+        selectedColorB = $(t).css('background-color');
+    });
+    $('.colorRight').click(function (e) {
+        var t = e.target;
+        selectedColorA = $(t).css('background-color');
+    });
+    selectedColorA = currentColors[Math.floor(Math.random()*currentColors.length)];
+    selectedColorB = currentColors[Math.floor(Math.random()*currentColors.length)];
 };
 
 setColors();
@@ -192,16 +206,8 @@ var slotSizeH = slotSize;
 var size = 500;
 var slotWidth = Math.floor(size / slotSize);
 var slotHeight = Math.floor(size / slotSize);
-var selectedColorA = 'eeeeec';
-var selectedColorB = '#2e3436';
-$('.colorLeft').click(function (e) {
-    var t = e.target;
-    selectedColorB = $(t).css('background-color');
-});
-$('.colorRight').click(function (e) {
-    var t = e.target;
-    selectedColorA = $(t).css('background-color');
-});
+
+
 var numTypes = 20;
 
 
