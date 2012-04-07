@@ -42,6 +42,12 @@
             margin-right: 5px;
         }
 
+        .headerDropdown {
+            float: right;
+            margin-right: 5px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
         .screen {
             position: absolute;
             top: 45px;
@@ -61,7 +67,7 @@
             position: absolute;
             top: 45px;
             left: 15px;
-            width: 100px;
+            width: 80px;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -74,7 +80,7 @@
             position: absolute;
             top: 45px;
             right: 15px;
-            width: 100px;
+            width: 80px;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -114,65 +120,9 @@
 <body oncontextmenu="return false;">
 <div class="header"><span class="title">Triangle Painter</span><a href="#" class="headerButton help">Help</a><a href="#"
                                                                                                                 class="headerButton saveButton">Save</a><a
-        href="#" class="headerButton newButton">New</a></div>
-<div class="leftColors">
-    <div class="colorLeft" style="background-color: #fce94f"></div>
-    <div class="colorLeft" style="background-color: #edd400"></div>
-    <div class="colorLeft" style="background-color: #c4a000"></div>
-    <div class="colorLeft" style="background-color: #fcaf3e"></div>
-    <div class="colorLeft" style="background-color: #f57900"></div>
-    <div class="colorLeft" style="background-color: #ce5c00"></div>
-    <div class="colorLeft" style="background-color: #e9b96e"></div>
-    <div class="colorLeft" style="background-color: #c17d11"></div>
-    <div class="colorLeft" style="background-color: #8f5902"></div>
-    <div class="colorLeft" style="background-color: #8ae234"></div>
-    <div class="colorLeft" style="background-color: #73d216"></div>
-    <div class="colorLeft" style="background-color: #4e9a06"></div>
-    <div class="colorLeft" style="background-color: #729fcf"></div>
-    <div class="colorLeft" style="background-color: #3465a4"></div>
-    <div class="colorLeft" style="background-color: #204a87"></div>
-    <div class="colorLeft" style="background-color: #ad7fa8"></div>
-    <div class="colorLeft" style="background-color: #75507b"></div>
-    <div class="colorLeft" style="background-color: #5c3566"></div>
-    <div class="colorLeft" style="background-color: #ef2929"></div>
-    <div class="colorLeft" style="background-color: #cc0000"></div>
-    <div class="colorLeft" style="background-color: #a40000"></div>
-    <div class="colorLeft" style="background-color: #eeeeec"></div>
-    <div class="colorLeft" style="background-color: #d3d7cf"></div>
-    <div class="colorLeft" style="background-color: #babdb6"></div>
-    <div class="colorLeft" style="background-color: #888a85"></div>
-    <div class="colorLeft" style="background-color: #555753"></div>
-    <div class="colorLeft" style="background-color: #2e3436"></div>
-</div>
-<div class="rightColors">
-    <div class="colorRight" style="background-color: #fce94f"></div>
-    <div class="colorRight" style="background-color: #edd400"></div>
-    <div class="colorRight" style="background-color: #c4a000"></div>
-    <div class="colorRight" style="background-color: #fcaf3e"></div>
-    <div class="colorRight" style="background-color: #f57900"></div>
-    <div class="colorRight" style="background-color: #ce5c00"></div>
-    <div class="colorRight" style="background-color: #e9b96e"></div>
-    <div class="colorRight" style="background-color: #c17d11"></div>
-    <div class="colorRight" style="background-color: #8f5902"></div>
-    <div class="colorRight" style="background-color: #8ae234"></div>
-    <div class="colorRight" style="background-color: #73d216"></div>
-    <div class="colorRight" style="background-color: #4e9a06"></div>
-    <div class="colorRight" style="background-color: #729fcf"></div>
-    <div class="colorRight" style="background-color: #3465a4"></div>
-    <div class="colorRight" style="background-color: #204a87"></div>
-    <div class="colorRight" style="background-color: #ad7fa8"></div>
-    <div class="colorRight" style="background-color: #75507b"></div>
-    <div class="colorRight" style="background-color: #5c3566"></div>
-    <div class="colorRight" style="background-color: #ef2929"></div>
-    <div class="colorRight" style="background-color: #cc0000"></div>
-    <div class="colorRight" style="background-color: #a40000"></div>
-    <div class="colorRight" style="background-color: #eeeeec"></div>
-    <div class="colorRight" style="background-color: #d3d7cf"></div>
-    <div class="colorRight" style="background-color: #babdb6"></div>
-    <div class="colorRight" style="background-color: #888a85"></div>
-    <div class="colorRight" style="background-color: #555753"></div>
-    <div class="colorRight" style="background-color: #000000"></div>
-</div>
+        href="#" class="headerButton newButton">New</a><select class="headerDropdown"><option value="nice">Nice Colors</option><option value="nes">NES</option><option value="gameboy">GameBoy</option><option value="virtualboy">VirtualBoy</option><option value="sega">Sega</option></select><span class="headerButton help">Palette:</span></div>
+<div class="leftColors"></div>
+<div class="rightColors"></div>
 <canvas class="screen" width="500px" height="500px"></canvas>
 <div class="footer">
     <!-- AddThis Button BEGIN -->
@@ -192,36 +142,34 @@
 <script>
 $('.help').click(function () {
     apprise("INSTRUCTION<br>- Left click will place a triangle down or change the triangle shape<br>- Right click will delete a triangle<br>- Shift+Left click will change the triangle to the previous shape")
-})
+});
 
-var colors = [
-    " #fce94f",
-    " #edd400",
-    " #c4a000",
-    " #fcaf3e",
-    " #f57900",
-    " #ce5c00",
-    " #e9b96e",
-    " #c17d11",
-    " #8f5902",
-    " #8ae234",
-    " #73d216",
-    " #4e9a06",
-    " #729fcf",
-    " #3465a4",
-    " #204a87",
-    " #ad7fa8",
-    " #75507b",
-    " #5c3566",
-    " #ef2929",
-    " #cc0000",
-    " #a40000",
-    " #eeeeec",
-    " #d3d7cf",
-    " #babdb6",
-    " #888a85",
-    " #555753",
-    " #2e3436"];
+window.niceColors=["#fce94f","#edd400","#c4a000","#fcaf3e","#f57900","#ce5c00","#e9b96e","#c17d11","#8f5902","#8ae234","#73d216","#4e9a06","#729fcf","#3465a4","#204a87","#ad7fa8","#75507b","#5c3566","#ef2929","#cc0000","#a40000","#eeeeec","#d3d7cf","#babdb6","#888a85","#555753","#2e3436"];
+window.nesColors = ["#000000","#a81000","#881400","#f87858","#f83800","#e45c10","#f0d0b0","#080808","#fca044","#fcfcfc","#f8f8f8","#d8d8d8","#bcbcbc","#7c7c7c","#787878","#503000","#fce0a8","#ac7c00","#f8b800","#f8d878","#d8f878","#b8f818","#58d854","#b8f8b8","#00b800","#00a800","#007800","#006800","#005800","#58f898","#00a844","#b8f8d8","#00e8d8","#00fcfc","#008888","#a4e4fc","#004058","#3cbcfc","#0078f8","#0058f8","#6888fc","#b8b8f8","#0000bc","#0000fc","#4428bc","#6844fc","#9878f8","#d8b8f8","#f8b8f8","#f878f8","#d800cc","#940084","#f85898","#e40058","#f8a4c0","#a80020"];
+window.gameboyColors = ["#9bbc0f","#8bac0f","#0f380f","#306230"];
+window.segaColors = ["#000000","#0000b7","#0000ff","#680000","#680068","#6800b7","#6800ff","#b70000","#b70068","#b700b7","#b700ff","#ff0000","#ff0068","#ff00b7","#ff00ff","#006800","#006868","#0068b7","#0068ff","#686800","#686868","#6868b7","#6868ff","#b76800","#b76868","#b768b7","#b768ff","#ff6800","#ff6868","#ff68b7","#ff68ff","#000068","#00b768","#00b7b7","#00b7ff","#68b700","#68b768","#68b7b7","#68b7ff","#b7b700","#b7b768","#b7b7b7","#b7b7ff","#ffb700","#ffb768","#ffb7b7","#ffb7ff","#00ff00","#00ff68","#00ffb7","#00ffff","#68ff00","#68ff68","#68ffb7","#68ffff","#b7ff00","#b7ff68","#b7ffb7","#b7ffff","#ffff00","#ffff68","#ffffb7","#ffffff","#00b700"];
+window.ntscColors = ["#000000","#ffffff","#702800","#841800","#880000","#78005c","#480078","#140084","#000088","#00187c","#002c5c","#00402c","#003c00","#143800","#2c3000","#442800","#404040","#646410","#844414","#983418","#9c2020","#8c2074","#602090","#302098","#1c209c","#1c3890","#1c4c78","#1c5c48","#205c20","#345c1c","#4c501c","#644818","#6c6c6c","#848424","#985c28","#ac5030","#b03c3c","#a03c88","#783ca4","#4c3cac","#3840b0","#3854a8","#386890","#387c64","#407c40","#507c38","#687034","#846830","#909090","#a0a034","#ac783c","#c06848","#c05858","#b0589c","#8c58b8","#6858c0","#505cc0","#5070bc","#5084ac","#509c80","#5c9c5c","#6c9850","#848c4c","#a08444","#444400","#b8b840","#bc8c4c","#d0805c","#d07070","#c070b0","#a070cc","#7c70d0","#6874d0","#6888cc","#689cc0","#68b494","#74b474","#84b468","#9ca864","#b89c58","#c8c8c8","#d0d050","#cca05c","#e09470","#e08888","#d084c0","#b484dc","#9488e0","#7c8ce0","#7c9cdc","#7cb4d4","#7cd0ac","#8cd08c","#9ccc7c","#b4c078","#d0b46c","#dcdcdc","#e8e85c","#dcb468","#eca880","#eca0a0","#dc9cd0","#c49cec","#a8a0ec","#90a4ec","#90b4ec","#90cce8","#90e4c0","#a4e4a4","#b4e490","#ccd488","#e8cc7c","#ececec","#fcfc68","#fcbc94","#fcb4b4","#ecb0e0","#d4b0fc","#bcb4fc","#a4b8fc","#a4c8fc","#a4e0fc","#a4fcd4","#b8fcb8","#c8fca4","#e0ec9c","#fce08c","#b0b0b0"];
+window.virtualboyColors =  ["#210606","#060606","#ff0606","#640606"];
+
+var currentColors = niceColors;
+
+$('.headerDropdown').change(function(){
+    var v =$('.headerDropdown').val();
+    currentColors = window[v+'Colors'];
+    setColors();
+    clear();
+});
+
+var setColors = function() {
+    $('.leftColors').html('');
+    $('.rightColors').html('');
+    for(var c in currentColors){
+        $('.leftColors').append('<div class="colorLeft" style="background-color: '+currentColors[c]+'"></div>');
+        $('.rightColors').append('<div class="colorRight" style="background-color: ' + currentColors[c] + '"></div>');
+    }
+};
+
+setColors();
 
 $('.leftColors').fadeTo(0, .2);
 $('.rightColors').fadeTo(0, .2);
@@ -263,12 +211,13 @@ var clear = function () {
         for (var x = 0; x < slotWidth; x++) {
             slots[y * slotWidth + x] = {
                 type:Math.floor(Math.random() * numTypes),
-                color_a:colors[Math.floor(Math.random() * colors.length)],
-                color_b:colors[Math.floor(Math.random() * colors.length)]
+                color_a:currentColors[Math.floor(Math.random() * currentColors.length)],
+                color_b:currentColors[Math.floor(Math.random() * currentColors.length)]
             };
         }
     }
     firstClick = true;
+    draw();
     draw();
     draw();
 };
@@ -677,6 +626,7 @@ $('canvas').mousedown(function (e) {
     }
 
     //draw twice because of antialiasing
+    draw();
     draw();
     draw();
 });
