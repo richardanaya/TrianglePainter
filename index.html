@@ -174,17 +174,20 @@
     <div class="colorRight" style="background-color: #000000"></div>
 </div>
 <canvas class="screen" width="500px" height="500px"></canvas>
-<div class="footer"><!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style ">
-<a class="addthis_button_preferred_1"></a>
-<a class="addthis_button_preferred_2"></a>
-<a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a>
+<div class="footer">
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style ">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_email"></a>
+        <a class="addthis_button_google"></a>
+        <a class="addthis_button_compact"></a>
+        <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript"
+            src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f7fb867517dda8b"></script>
+    <!-- AddThis Button END -->
 </div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f7fb867517dda8b"></script>
-<!-- AddThis Button END --></div>
 </body>
 <script>
 $('.help').click(function () {
@@ -270,11 +273,11 @@ var clear = function () {
     draw();
 };
 
-$('.newButton').click(function(){
+$('.newButton').click(function () {
     clear();
 });
 
-$('.saveButton').click(function(){
+$('.saveButton').click(function () {
     var img = $('.screen').get(0).toDataURL("image/png");
     window.open(img);
 });
