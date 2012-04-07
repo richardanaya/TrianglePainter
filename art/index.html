@@ -254,7 +254,7 @@ $('.colorRight').click(function (e) {
     var t = e.target;
     selectedColorB = $(t).css('background-color');
 });
-var numTypes = 22;
+var numTypes = 20;
 
 
 var firstClick = true;
@@ -627,14 +627,14 @@ draw = function () {
             }
 
             //solids
-            else if (s.type == 20) {
+            /*else if (s.type == 20) {
                 ctx.fillStyle = s.color_a;
                 ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH);
             }
             else if (s.type == 21) {
                 ctx.fillStyle = s.color_b;
                 ctx.fillRect(x * slotSizeW, y * slotSizeH, slotSizeW, slotSizeH);
-            }
+            }*/
         }
     }
 };
