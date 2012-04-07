@@ -230,6 +230,8 @@ var clear = function () {
 
 $('.newButton').click(function () {
     clear();
+    selectedColorA = currentColors[Math.floor(Math.random()*currentColors.length)];
+    selectedColorB = currentColors[Math.floor(Math.random()*currentColors.length)];
 });
 
 $('.saveButton').click(function () {
